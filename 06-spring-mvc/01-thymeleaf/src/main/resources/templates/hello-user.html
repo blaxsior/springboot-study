@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!--    <meta charset="UTF-8">-->
+    <title th:text="'hello,' + ${message}" />
+</head>
+<body>
+<p>hello, world spring!</p>
+<p>student name = <span th:text="${param.name}" /></p>
+<p th:text="'mesage =' + ${message}"/>
+</body>
+</html>

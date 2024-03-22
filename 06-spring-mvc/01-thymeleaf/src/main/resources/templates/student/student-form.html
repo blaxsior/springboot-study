@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form th:action="@{/student/processStudentForm}" th:object="${student}" method="post">
+        <div>
+            <label th:for="*{firstName}">FirstName</label>
+            <input type="text" name="firstName" th:field="*{firstName}" />
+        </div>
+        <div>
+            <label th:for="*{firstName}">LastName</label>
+            <input type="text" name="lastName" th:field="*{lastName}" />
+        </div>
+        <div>
+            <label th:for="*{country}">country</label>
+            <select name="country" th:field="*{country}">
+                <option disabled selected value="">-- choose --</option>
+                <option th:each="ct: ${countries}"
+                        th:text="${ct}"
+                        th:value="${ct}"/>
+            </select>
+        </div>
+<!--        <div>-->
+<!--            <label th:for="firstName">FirstName</label>-->
+<!--            <input type="text" name="firstName" />-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <label th:for="lastName">LastName</label>-->
+<!--            <input type="text" name="lastName" />-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <label th:for="country">country</label>-->
+<!--        <select name="country">-->
+<!--            <option disabled selected value>&#45;&#45; choose &#45;&#45;</option>-->
+<!--            <option th:each="country: ${countries}"-->
+<!--                    th:text="${country}"-->
+<!--                    th:value="${country}"/>-->
+<!--        </select>-->
+<!--        </div>-->
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
