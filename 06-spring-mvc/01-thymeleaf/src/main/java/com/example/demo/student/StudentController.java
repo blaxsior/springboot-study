@@ -1,5 +1,6 @@
-package com.example.demo.student.model;
+package com.example.demo.student;
 
+import com.example.demo.student.model.Student;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,12 +19,20 @@ public class StudentController {
     @Value("${app.countries}")
     List<String> countries;
 
+    @Value("${app.languages}")
+    List<String> languages;
+
+    @Value("${app.favoriteSystems}")
+    List<String> favoriteSystems;
+
     @GetMapping("/form")
     public String studentForm(Model model) {
         Student student = new Student();
         model.addAttribute("student", student);
 
         model.addAttribute("countries", countries);
+        model.addAttribute("languages", languages);
+        model.addAttribute("systems", favoriteSystems);
 
         return "student/student-form";
     }

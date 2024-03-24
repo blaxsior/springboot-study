@@ -6,7 +6,12 @@
 </head>
 <body>
 <h1>student info</h1>
-<span th:text="'name =' + ${student.firstName} + ' ' + ${student.lastName} "/>
+<span> name = <th:block th:text="${student.firstName} + ' ' + ${student.lastName}" /></span>
 <div>country: <span th:text="${student.country}" /></div>
+<div>favorite programming language: <span th:text="${student.favoriteLanguage}" /></div>
+<div>favorite os systems</div>
+<ul>
+    <li th:each="fav_system: ${student.favoriteSystems}" th:text="${fav_system}"/>
+</ul>
 </body>
 </html>
