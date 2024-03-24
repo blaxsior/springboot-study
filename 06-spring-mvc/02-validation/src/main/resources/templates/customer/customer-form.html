@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>customer form</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>(*)는 필수입니다.</div>
+    <form th:action="@{/customer/form}" method="post" th:object="${customer}">
+        <div>
+            <label th:field="*{firstName}">firstName</label>
+            <input type="text" th:field="*{firstName}" />
+        </div>
+        <div>
+            <label th:field="*{lastName}">lastName(*)</label>
+            <input type="text" th:field="*{lastName}" />
+            <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="error"></span>
+        </div>
+        <button type="submit">submit</button>
+    </form>
+</body>
+</html>
