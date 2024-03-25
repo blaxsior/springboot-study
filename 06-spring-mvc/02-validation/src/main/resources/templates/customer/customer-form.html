@@ -21,6 +21,23 @@
             <input type="text" th:field="*{lastName}" />
             <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="error"></span>
         </div>
+        <div>
+            <label th:field="*{age}">age([0, 10])</label>
+            <input type="number" th:field="*{age}" />
+            <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="error"></span>
+        </div>
+        <div>
+            <label th:field="*{postalCode}">postal code(*)</label>
+            <input type="text" th:field="*{postalCode}" />
+            <span th:if="${#fields.hasErrors('postalCode')}" th:errors="*{postalCode}" class="error"></span>
+        </div>
+
+        <div>
+            <label th:field="*{courseCode}">course code(*)</label>
+            <input type="text" th:field="*{courseCode}" />
+            <span th:if="${#fields.hasErrors('courseCode')}" th:errors="*{courseCode}" class="error"></span>
+        </div>
+
         <button type="submit">submit</button>
     </form>
 </body>
