@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: common-head" ></head>
+<title>save employee</title>
+</head>
+<body>
+
+<div class="container">
+    <div th:replace="/fragments/header :: header"></div>
+    <h2>save employee</h2>
+    <form th:action="@{/employees/save}" th:object="${employee}" method="post">
+        <div>
+            <label th:for="*{firstName}" class="fs-6 text-body-secondary">firstName</label>
+            <input type="text" th:field="*{firstName}"
+                   class="form-control mb-4 w-25" />
+        </div>
+        <div>
+            <label th:for="*{lastName}" class="fs-6 text-body-secondary">lastName</label>
+            <input type="text" th:field="*{lastName}"
+                   class="form-control mb-4 w-25" />
+        </div>
+        <div>
+        <label th:for="*{email}" class="fs-6 text-body-secondary">email</label>
+        <input type="text" th:field="*{email}"
+               class="form-control mb-4 w-25" />
+    </div>
+        <button type="submit" class="btn btn-primary">save</button>
+    </form>
+    <hr>
+    <a th:href="@{/employees/list}" class="text-primary">back to employee list</a>
+</div>
+</body>
+</html>

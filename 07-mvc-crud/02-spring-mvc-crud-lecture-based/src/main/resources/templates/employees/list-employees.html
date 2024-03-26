@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: common-head" ></head>
+<title>Employees</title>
+</head>
+<body>
+
+<div class="container">
+    <div th:replace="/fragments/header :: header"></div>
+    <a th:href="@{/employees/addForm}"
+       class="btn btn-primary btn-sm mb-3">
+        add employee
+    </a>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>first name</th>
+            <th>last name</th>
+            <th>email</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee: ${employees}">
+            <td th:text="*{employee.firstName}"/>
+            <td th:text="*{employee.lastName}"/>
+            <td th:text="*{employee.email}"/>
+            <td class="d-flex justify-content-evenly">
+                <a class="btn btn-primary" th:href="'/employees/edit?employeeId='+${employee.id}">edit</a>
+                <a class="btn btn-danger"
+                   th:href="'/employees/delete?employeeId='+${employee.id}"
+                    onclick="return confirm('are you really want to delete?')">delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
