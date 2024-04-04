@@ -1,6 +1,7 @@
 package com.example.demo.instructor.entity;
 
 import com.example.demo.course.entity.Course;
+import com.example.demo.review.entity.Review;
 import jakarta.persistence.*;
 import org.hibernate.Hibernate;
 import org.springframework.lang.NonNull;
@@ -38,6 +39,8 @@ public class Instructor {
             CascadeType.DETACH, CascadeType.REFRESH
     })
     private List<Course> courses;
+
+
 
     public Instructor() {
     }
@@ -97,13 +100,14 @@ public class Instructor {
     }
 
     public void addCourse(@NonNull Course course) {
-        if(this.courses == null) {
+        if (this.courses == null) {
             this.courses = new ArrayList<>();
         }
 
         this.courses.add(course);
         course.setInstructor(this); // 양방향 매핑
     }
+
     public void setInstructorDetail(InstructorDetail instructorDetail) {
         this.instructorDetail = instructorDetail;
     }

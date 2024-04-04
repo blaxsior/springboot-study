@@ -4,6 +4,7 @@ import com.example.demo.course.dao.CourseDao;
 import com.example.demo.course.entity.Course;
 import com.example.demo.instructor.dao.InstructorDao;
 import com.example.demo.instructor.entity.Instructor;
+import com.example.demo.review.entity.Review;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,6 +27,8 @@ public class DemoApplication {
 //			findInstructorWithCourses(instructorDao);
 //			deleteInstructor(instructorDao);
 			deleteCourse(courseDao);
+//			createCourseAndReviews(courseDao);
+//			findCourseWithReviews(courseDao);
 		};
 	}
 
@@ -96,5 +99,21 @@ public class DemoApplication {
 		var id = 10;
 
 		dao.deleteById(id);
+	}
+
+	private void createCourseAndReviews(CourseDao dao) {
+		Course course = new Course("this is course");
+		course.addReview((new Review("review1")));
+		course.addReview((new Review("review2")));
+		course.addReview((new Review("review3")));
+		course.addReview((new Review("review4")));
+
+		dao.save(course);
+	}
+
+	private void findCourseWithReviews(CourseDao dao) {
+		var id = 10;
+		var course = dao.findWithReviewsById(id);
+		System.out.println(course);
 	}
 }

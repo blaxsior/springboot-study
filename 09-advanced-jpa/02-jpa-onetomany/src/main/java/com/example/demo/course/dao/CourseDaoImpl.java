@@ -28,6 +28,12 @@ public class CourseDaoImpl implements CourseDao {
     }
 
     @Override
+    @Transactional
+    public void save(Course course) {
+        this.em.persist(course);
+    }
+
+    @Override
     public Course findById(Integer id) {
         return this.em.find(Course.class, id);
     }
@@ -45,5 +51,15 @@ public class CourseDaoImpl implements CourseDao {
         if(course == null) return;
 
         this.em.remove(course);
+    }
+
+    @Override
+    public Course findWithReviewsById(Integer id) {
+        TypedQuery<Course> query = this.em.createQuery("select c from Course c " +
+                "left join fetch c.reviews " +
+                "where c.id=:id", Course.class)
+                .setParameter("id", id);
+
+        return query.getSingleResult();
     }
 }

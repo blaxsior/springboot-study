@@ -18,7 +18,7 @@ public class InstructorDetail {
 
     @OneToOne(
             mappedBy = "instructorDetail",
-            cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}
+            cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH}
     ) // 외래키는 instructor이 가짐
     private Instructor instructor;
 
