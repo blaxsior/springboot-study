@@ -10,6 +10,8 @@ public interface AccountDao {
 
     List<Account> findAccounts();
 
+    Account findById(Integer id);
+
     String getName();
 
     public void setName(String name);

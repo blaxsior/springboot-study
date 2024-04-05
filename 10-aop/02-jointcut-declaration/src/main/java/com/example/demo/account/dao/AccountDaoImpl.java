@@ -43,7 +43,16 @@ public class AccountDaoImpl implements AccountDao {
         List<Account> myAccounts = new ArrayList<>();
 
         // sample Accounts
+        myAccounts.add(new Account("john", "silver"));
+        myAccounts.add(new Account("mary", "gold"));
+        myAccounts.add(new Account("kyle", "bronze"));
 
         return myAccounts;
+    }
+
+    @Override
+    public Account findById(Integer id) {
+        // 테스트를 위해 무조건 에러를 반환하게 설계
+        throw new RuntimeException("Account not found");
     }
 }

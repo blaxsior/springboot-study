@@ -1,4 +1,4 @@
-package com.example.demo.aspect;
+package com.example.demo.aop;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Order(3)
 public class ApiAnalyticsAspect {
-    @Before("com.example.demo.aspect.AopExp.getterOrSetterPointCut()")
+    @Before("com.example.demo.aop.AopExp.getterOrSetterPointCut()")
     public void performGetSet3() {
         System.out.println("[GETTER/SETTER 333]");
     }

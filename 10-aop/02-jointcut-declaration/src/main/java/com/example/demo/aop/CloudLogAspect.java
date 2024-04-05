@@ -1,4 +1,4 @@
-package com.example.demo.aspect;
+package com.example.demo.aop;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Order(2)
 public class CloudLogAspect {
 
-    @Before("com.example.demo.aspect.AopExp.getterOrSetterPointCut()")
+    @Before("com.example.demo.aop.AopExp.getterOrSetterPointCut()")
     public void performGetSet2() {
         System.out.println("[GETTER/SETTER 222]");
     }

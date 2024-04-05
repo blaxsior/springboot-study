@@ -1,9 +1,7 @@
-package com.example.demo.aspect;
+package com.example.demo.aop;
 
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -52,8 +50,9 @@ public class AppAspect {
 //        System.out.println("[perform except getter or setter]");
 //    }
 
-    @Before("com.example.demo.aspect.AopExp.getterOrSetterPointCut()")
+    @Before("com.example.demo.aop.AopExp.getterOrSetterPointCut()")
     public void performGetSet1() {
         System.out.println("[GETTER/SETTER 111]");
     }
+
 }
