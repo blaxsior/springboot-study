@@ -22,6 +22,11 @@ public class DemoApplication {
 			accountDao.addAccount2(new Account("hello", "world"), true);
 			membershipDao.addMembership();
 			membershipDao.addSillyFunc();
+			// 여기 영역에 대해서는 출력 안됨
+			accountDao.setName("hello");
+			accountDao.getName();
+			accountDao.setServiceCode("code");
+			accountDao.getServiceCode();
 		};
 	}
 
